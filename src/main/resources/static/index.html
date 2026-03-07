@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="html, css, javaScript">
+    <meta name="description" content="To-do List WebSite">
+    <meta name="author" content="Ana Clarissi">
+    <title>Todo List</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <main>
+
+        <section class="container">
+        
+            <h1>Todo List</h1>
+
+            <form action="create-todolist" id="task-form">
+
+                    <label for="todo-name">To-do Name: </label>
+                    <input type="text" name="todo-name" id="todo-name" placeholder="Name">
+
+                    <label for="todo-desc">To-do Description: </label>
+                    <input type="text" name="todo-desc" id="todo-desc" placeholder="Description">
+
+                    <label for="todo-start-date">Start Date: </label>
+                    <input type="date" name="todo-start-date" id="todo-start-date">
+
+                    <label for="todo-end-date">End Date: </label>
+                    <input type="date" name="todo-end-date" id="todo-end-date">
+
+                    <button type="submit">Create</button>
+
+            </form>
+
+            <section class="content">
+
+                <h2>My Tasks</h2>
+
+                <ul class="task-list">
+
+                    <!--<li class="task-item">
+
+                        <div class="task-infor">
+
+                            <h3>Beijar Minha Namorada</h3>
+
+                            <p>Dar Varios Beijos na minha namorada chamada cecíila</p>
+
+                        </div>
+
+                        <div class="task-dates">
+
+                            <span>Início: 07/03/2026</span>
+                            <span>Fím: 27/03/2026</span>
+
+                        </div>
+
+                        <button class="button btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+
+                    </li>-->
+
+                </ul>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+    
+</body>
+</html>
