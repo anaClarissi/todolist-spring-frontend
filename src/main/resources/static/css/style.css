@@ -174,3 +174,54 @@ main {
 .task-item.completed .btn-check {
     color: #4caf50;
 }
+
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 25px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 5px solid #6c63ff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: white;
+    background-color: #333;
+    animation: slideIn .5s ease-in-out;
+}
+
+.toast.fade-out {
+    animation: fadeOn .5s ease-in-out forwards;
+}
+
+.toast.error {
+    border-left-color: #ff4b4b;
+}
+
+.toast.success {
+    border-left-color: #4caf50;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}

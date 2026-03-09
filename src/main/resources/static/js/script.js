@@ -63,17 +63,19 @@ taskForm.addEventListener('submit', async (event) => {
 
             fetchTask();
 
+            showToast("Task Created Successfully", "success");
+
         } else {
 
             const errorData = await response.json();
 
-            alert("Erro: " + (errorData.message || "Verifiique as datas!"));
+            showToast(errorData.message || "Error Saving Task")
 
         }
 
     } catch (error) {
 
-        alert("Não foi possivel conectar ao servidor Java.");
+        alert("Unable to connect to the Java server");
 
     }
 
@@ -170,6 +172,33 @@ function renderTask(task) {
     deleteBtn.addEventListener('click', () => deleteTask(task.id));
 
     taskList.appendChild(li);
+
+}
+
+function showToast(message, type = 'error') {   
+
+    const container = document.querySelector('#toast-container');
+
+    const toast = document.createElement('div');
+
+    toast.className = `toast ${type}`;
+
+    const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+
+    toast.innerHTML = `
+        <i class="fa-solid ${icon}"></i>
+        <span>${message}</span>
+    `;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+
+        toast.classList.add('fade-out');
+
+        setTimeout(() => toast.remove(), 500);
+
+    }, 4000);
 
 }
 
