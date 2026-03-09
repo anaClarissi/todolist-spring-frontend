@@ -99,7 +99,10 @@ main {
 
 .task-item {
     display: flex;
+    justify-content: space-between;
     gap: 10px;
+    min-width: 100%;
+    max-width: 100%;
     background-color: #ffffff0a;
     border: 1px solid #6c63ff30;
     padding: 20px;
