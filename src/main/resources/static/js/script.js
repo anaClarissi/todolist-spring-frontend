@@ -79,6 +79,36 @@ taskForm.addEventListener('submit', async (event) => {
 
 });
 
+async function toggleTask(task) {
+
+     const updatedTask = {
+        ...task,
+        completed: !task.completed
+    };
+
+    try {
+
+        const response = await fetch(`${API_URL}/${task.id}`, {
+
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(updatedTask)
+
+        });
+
+        if (response.ok) {
+
+            fetchTask();
+
+        }
+
+    } catch (error) {
+
+        console.error("Error:", error);
+
+    }
+    
+}
 
 async function deleteTask(id) {
 
@@ -114,9 +144,12 @@ function renderTask(task) {
 
     const li = document.createElement('li');
 
-    li.className = 'task-item';
+    li.className = `task-item ${task.completed ? 'completed' : ''}`;
 
     li.innerHTML = `
+        <button class="button btn-check">
+            <i class="${task.completed ? 'fa-solid' : 'fa-regular'} fa-circle-check"></i>
+        </button>
         <div class="task-infor">
             <h3>${task.name}</h3>
             <p>${task.description}</p>
@@ -125,8 +158,16 @@ function renderTask(task) {
             <span>Início: ${task.startDate}</span>
             <span>Fím: ${task.endDate}</span>
         </div>
-        <button class="button btn-delete" onclick=deleteTask(${task.id})><i class="fa-solid fa-trash-can"></i></button>
+        <button class="button btn-delete"><i class="fa-solid fa-trash-can"></i></button>
     `;
+
+    const checkBtn = li.querySelector('.btn-check');
+
+    const deleteBtn = li.querySelector('.btn-delete');
+
+    checkBtn.addEventListener('click', () => toggleTask(task));
+
+    deleteBtn.addEventListener('click', () => deleteTask(task.id));
 
     taskList.appendChild(li);
 

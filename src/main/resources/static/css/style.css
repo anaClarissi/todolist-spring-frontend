@@ -150,6 +150,24 @@ main {
 }
 
 .btn-delete:hover {
-    background-color: rgba(255, 83, 83, 0.158);
-    border: 1px solid rgba(129, 28, 28, 0.438);
+    background-color: #ff535328;
+    border: 1px solid #811c1c70;
+}
+
+.btn-check:hover {
+    transform: scale(1.2);
+}
+
+.task-item.completed {
+    opacity: 0.5;
+    border-color: #4caf5050;
+}
+
+.task-item.completed h3 {
+    text-decoration: 2px line-through;
+    color: #888;
+}
+
+.task-item.completed .btn-check {
+    color: #4caf50;
 }
